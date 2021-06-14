@@ -31,8 +31,11 @@ for data in dataset:
             word2count[word] +=1
 
 
+# Getting 100 most occuring words from the dictionary word2count
 freq_words = heapq.nlargest(100,word2count,key=word2count.get)
 
+# Creating a sparse matrix with value as 1 if the word is present in specific rows
+# and 0 f the word is not present in that specific row.
 X =[]
 for data in dataset:
     vector = []
@@ -43,6 +46,8 @@ for data in dataset:
             vector.append(0)
         
     X.append(vector)
+    
+#Converting List to 2D array
 X = np.asarray(X)
 
 
